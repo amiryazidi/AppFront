@@ -5,7 +5,6 @@
          placeholder="Search by price" [(ngModel)] ="priceMax">
 </div>
 <br>
-
 <div class="row">
   <div class="col-md-3" *ngFor="let product of listProduct; let i=index">
     <div *ngIf="product.price<priceMax || priceMax==null">
