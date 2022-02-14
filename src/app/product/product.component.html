@@ -1,0 +1,16 @@
+<div class="col-md-3" *ngIf="product.quantity< priceMax || priceMax==null">
+<div class="card" style="width: 18rem;">
+  <img src="{{product.picture}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{product.name}}</h5>
+    <p class="card-text">{{product.description}}</p>
+    <p class="card-text">{{product.price}}</p>
+
+    <button class="btn btn-primary" (click)="incrementLike(product)">like  {{product.nbrLike}}</button>
+
+    <button  class="btn btn-sm btn-warning" id="buy"  [disabled]="product.quantity==0">
+      buy Product
+    </button>
+  </div>
+</div>
+</div>
