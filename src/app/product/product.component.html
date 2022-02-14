@@ -6,7 +6,7 @@
     <p class="card-text">{{product.description}}</p>
     <p class="card-text">{{product.price}}</p>
 
-    <button class="btn btn-primary" (click)="incrementLike(product)">like  {{product.nbrLike}}</button>
+    <button class="btn btn-primary" (click)="incrementLikeNotification(product)">like  {{product.nbrLike}}</button>
 
     <button  class="btn btn-sm btn-warning" id="buy"  [disabled]="product.quantity==0">
       buy Product

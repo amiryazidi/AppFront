@@ -20,7 +20,11 @@ export class ProductListComponent implements OnInit {
       {id: 3, name: 'T-shirt 3',description: 'magnam natus porro quibusdam quisquam quod saepe sequi', price: 120, nbrLike: 0, quantity: 2, picture: 'assets/images/t_shirt1.jpg'},
     ];
   }
-  incrementLike(i: number){
-    this.listProduct[i].nbrLike++;
+  incrementLike(product: Product){
+   // this.listProduct[i].nbrLike++;
+    let i= this.listProduct.indexOf(product);
+    if(i!=-1){
+      this.listProduct[i].nbrLike++;
+    }
   }
 }
