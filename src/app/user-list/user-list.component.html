@@ -19,7 +19,7 @@
               (click)="delete(i)"
               [disabled]="user.role=='admin'">delete</button>
       &nbsp;
-      <button class="btn btn-sm btn-info">show user</button>
+      <button class="btn btn-sm btn-info" [routerLink] = "['/user',user.id]">show user</button>
     </td>
   </tr>
 </table>

@@ -10,6 +10,8 @@ import { UserListComponent } from './user-list/user-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BestSellerComponent } from './best-seller/best-seller.component';
 import { ProductComponent } from './product/product.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { DetailUserComponent } from './detail-user/detail-user.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { ProductComponent } from './product/product.component';
     UserListComponent,
     BestSellerComponent,
     ProductComponent,
+    NotFoundComponent,
+    DetailUserComponent,
   ],
   imports: [
     BrowserModule,
