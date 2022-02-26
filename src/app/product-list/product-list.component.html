@@ -1,4 +1,14 @@
 <h1> {{title}} </h1>
+
+<button class="btn btn-warning" (click)="showForm()">
+  add Product </button>
+<br>
+
+<app-add-product *ngIf="show" (eventAddProduct)="saveProduct($event)"></app-add-product>
+<br>
+
+<div [hidden]="show">
+
 <div class="form-group col-md-3">
   <label>Search</label>
   <input class="form-control" name="price" type="number"
@@ -15,6 +25,6 @@
                 class="col-md-3">
 
   </app-product>
-
+</div>
 
 </div>
