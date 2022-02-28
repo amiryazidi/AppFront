@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from "../core/model/product";
+import {CalculService} from "../core/services/calcul.service";
+import {ProductService} from "../core/services/product.service";
 
 @Component({
   selector: 'app-product-list',
@@ -11,16 +13,17 @@ export class ProductListComponent implements OnInit {
   priceMax : number;
   listProduct: Product[];
   show:boolean;
-  constructor() { }
+  stockAlert: number;
+
+  constructor(private calcul: CalculService, private productService: ProductService) { }
 
   ngOnInit(): void {
     this.title= "MyApp Store";
     this.show=false;
-    this.listProduct = [
-      {id: 1, name: 'T-shirt 1',description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', price: 15, nbrLike: 0, quantity: 10, picture: 'assets/images/t_shirt1.jpg'},
-      {id: 2, name: 'T-shirt 2',description: 'Ad corporis culpa eligendi, esse fugit id illo ipsam iste iusto ', price: 65, nbrLike: 0, quantity: 0, picture: 'assets/images/t_shirt1.jpg'},
-      {id: 3, name: 'T-shirt 3',description: 'magnam natus porro quibusdam quisquam quod saepe sequi', price: 120, nbrLike: 0, quantity: 2, picture: 'assets/images/t_shirt1.jpg'},
-    ];
+    this.listProduct= this.productService.list;
+    this.stockAlert= this.calcul.getBilan(this.listProduct,'quantity',0);
+
+
   }
   incrementLike(product: Product){
    // this.listProduct[i].nbrLike++;
