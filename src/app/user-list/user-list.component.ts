@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from "../core/model/user";
+import {CalculService} from "../core/services/calcul.service";
 
 @Component({
   selector: 'app-user-list',
@@ -8,7 +9,8 @@ import {User} from "../core/model/user";
 })
 export class UserListComponent implements OnInit {
   listUser: User[];
-  constructor() { }
+  countAdmin: number
+  constructor(private calcul: CalculService) { }
 
   ngOnInit(): void {
     this.listUser=[
@@ -20,5 +22,8 @@ export class UserListComponent implements OnInit {
   }
   delete(i:number):void{
     this.listUser.splice(i,1);
+  }
+  getNumber(){
+  this.countAdmin= this.calcul.getBilan(this.listUser,'role','admin')
   }
 }
