@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from "../core/model/user";
 import {CalculService} from "../core/services/calcul.service";
+import {UserService} from "../core/services/user.service";
+import {error} from "@angular/compiler/src/util";
 
 @Component({
   selector: 'app-user-list',
@@ -10,15 +12,12 @@ import {CalculService} from "../core/services/calcul.service";
 export class UserListComponent implements OnInit {
   listUser: User[];
   countAdmin: number
-  constructor(private calcul: CalculService) { }
+  constructor(private calcul: CalculService,private userService: UserService) { }
 
   ngOnInit(): void {
-    this.listUser=[
-      {id: 1, username: 'Ahmed', name: 'Ahmed ben foulen', email: 'ahmed@gmail.com',role:'admin'},
-      {id: 2, username: 'Ahmed', name: 'Ahmed ben foulen', email: 'ahmed@gmail.com',role:'simple user'},
-      {id: 3, username: 'Ahmed', name: 'Ahmed ben foulen', email: 'ahmed@gmail.com',role:'admin'},
-      {id: 4, username: 'Ahmed', name: 'Ahmed ben foulen', email: 'ahmed@gmail.com',role:'admin'},
-    ];
+    this.userService.getAllusers().subscribe(
+      (data)=>this.listUser=data)
+    ;
   }
   delete(i:number):void{
     this.listUser.splice(i,1);
