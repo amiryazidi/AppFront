@@ -1,0 +1,13 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "T-shirt 1",
+      "description": "Lorem ipsum",
+      "price": 150,
+      "like": 0,
+      "quantity": 10,
+      "picture": "assets/images/t_shirt1.jpg"
+    }
+  ]
+}

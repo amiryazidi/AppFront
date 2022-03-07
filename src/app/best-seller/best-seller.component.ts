@@ -12,7 +12,9 @@ export class BestSellerComponent implements OnInit {
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.list = this.productService.list;
+    this.productService.getProduct().subscribe(
+      (data: Product[]) => this.list = data
+    );
   }
 
 }
